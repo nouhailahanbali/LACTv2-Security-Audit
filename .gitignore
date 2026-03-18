@@ -1,3 +1,5 @@
+--- Original Author Rules ---
+
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
@@ -9,3 +11,31 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+--- Research & Audit Rules (Crucial) ---
+
+Ignore the entire build directory to prevent uploading binaries
+
+build/
+bin/
+lib/
+
+Ignore compiled object files and shared libraries
+
+*.so
+*.a
+*.o
+*.la
+*.lo
+
+Ignore database files generated during attack tests
+
+*.db
+*.db-journal
+
+System and IDE files
+
+.DS_Store
+.vscode/
+.idea/
+Thumbs.db

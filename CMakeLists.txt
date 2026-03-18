@@ -124,3 +124,37 @@ add_executable(example example/simple_store.c)
 target_link_libraries(example PRIVATE lactxv2::library)
 target_link_libraries(example PRIVATE OpenSSL::SSL)
 target_link_libraries(example PRIVATE SQLite::SQLite3)
+
+
+############################################################
+# Cryptanalysis: Double-Spending Attack Test
+############################################################
+add_executable(attack_double_spend 
+    cryptanalysis/attack_tests/attack_double_spend.c)
+target_link_libraries(attack_double_spend PRIVATE lactxv2::library)
+target_link_libraries(attack_double_spend PRIVATE OpenSSL::SSL)
+target_link_libraries(attack_double_spend PRIVATE SQLite::SQLite3)
+############################################################
+# Cryptanalysis: Inflation Attack Test
+############################################################
+add_executable(attack_inflation cryptanalysis/attack_tests/attack_inflation.c)
+target_link_libraries(attack_inflation PRIVATE lactxv2::library OpenSSL::SSL SQLite::SQLite3)
+############################################################
+# Cryptanalysis: Negative  Attack Test
+############################################################
+
+add_executable(attack_negative cryptanalysis/attack_tests/attack_negative.c)
+target_link_libraries(attack_negative PRIVATE lactxv2::library OpenSSL::SSL SQLite::SQLite3)
+############################################################
+# Cryptanalysis:  Malleability Attack Test
+############################################################
+
+add_executable(attack_malleability cryptanalysis/attack_tests/attack_malleability.c)
+target_link_libraries(attack_malleability PRIVATE lactxv2::library OpenSSL::SSL SQLite::SQLite3)
+############################################################
+# Cryptanalysis:  Range Proof  Attack Test
+############################################################
+
+
+add_executable(attack_range_proof cryptanalysis/attack_tests/attack_range_proof.c)
+target_link_libraries(attack_range_proof PRIVATE lactxv2::library OpenSSL::SSL SQLite::SQLite3)
