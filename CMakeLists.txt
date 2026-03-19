@@ -85,6 +85,7 @@ target_include_directories(lactxv2_lib PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_link_libraries(lactxv2_lib PRIVATE OpenSSL::SSL)
 target_link_libraries(lactxv2_lib PRIVATE SQLite::SQLite3)
 target_link_libraries(lactxv2_lib PRIVATE m)
+target_link_libraries(lactxv2_lib PRIVATE pthread)      
 target_link_libraries(lactxv2_lib PUBLIC lattice256::lib)
 target_link_libraries(lactxv2_lib PUBLIC lactxv2::pack)
 
@@ -158,3 +159,8 @@ target_link_libraries(attack_malleability PRIVATE lactxv2::library OpenSSL::SSL 
 
 add_executable(attack_range_proof cryptanalysis/attack_tests/attack_range_proof.c)
 target_link_libraries(attack_range_proof PRIVATE lactxv2::library OpenSSL::SSL SQLite::SQLite3)
+
+############################################################
+# APCL – Activity-Proof Consensus Locking (Solution)
+############################################################
+include(apcl/CMakeLists_apcl.cmake)
