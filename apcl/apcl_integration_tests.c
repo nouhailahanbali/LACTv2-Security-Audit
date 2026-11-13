@@ -101,8 +101,7 @@ static int build_spend(store_t *store,
     lactx_coin_copy(&tx->in[0], input_coin);
     return lactx_header_create(&store->ctx, &tx->header,
                                n_out, tx->out, out_masks, v_out,
-                               1, tx->in, &in_mask, &v_in);
-}
+                                  1, tx->in, (uint8_t (*)[LACTX_m - D][r_BYTES]) in_mask, &v_in);}
 
 /* ─────────────────────────────────────────────────────────────
  * T01 – Happy-path single spend
